@@ -4,9 +4,13 @@ class Storage {
     this.#items = items;
   }
   getItems() { return this.#items; };
-  addItem(newItem) { return this.#items.push(newItem) };
+  addItem(newItem) {
+    let newItemArray = (this.#items.push(newItem));
+    return (newItemArray);
+  };
   removeItem(itemToRemove) {
-    return this.#items.splice(this.#items.indexOf(itemToRemove), 1)
+    if (this.#items.includes(itemToRemove)) { return this.#items.splice(this.#items.indexOf(itemToRemove), 1) }
+    ;
   };
 }
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
